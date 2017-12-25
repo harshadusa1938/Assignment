@@ -1,4 +1,4 @@
-package assignment;
+package com.strose;
 
 import java.util.Scanner;
 
@@ -8,10 +8,11 @@ public class Prog1
 	public String carName="";
 	public String cityName="";
 	public int totalAnimals=0;
+	private Scanner s;
 
 	public Prog1()
 	{
-		Scanner s=new Scanner(System.in);
+		s = new Scanner(System.in);
 		System.out.println("Enter name of Animal : ");
 		animalName =s.next();
 		System.out.println("Enter name of Car : ");
