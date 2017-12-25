@@ -1,82 +1,131 @@
-package com.strose;
-import java.util.Scanner;
+// Package 
+package chapter2;
 
-public class Student// Create Student Class
-{
-	public String name;
-	public String ssn;
-	public int course_completed;
-	public int course_grades;
-	public String course_credits;
+//Class
+public class Student {
+	
+   private int id; // Instance Variables
+   private String name;
+   private double subj1;
+   private double subj2;
+   private double subj3;
+   public static int numberOfStudents = 0; // Class Variable 
 
-	//Create Constructor
-	public Student(String name,String ssn,int course_completed,int course_grades,String course_credits)
+   
+   //Overloaded Constructor
+   public Student() {
+	   this.id = 0;
+	   this.name = "no name";
+	   this.subj1 = 0.00;
+	   this.subj2 = 0.00;
+	   this.subj3 = 0.00;
+	   numberOfStudents++;
+	   
+   } 
+   
+   public Student (int id, String name) {
+	   this.id = id;
+	   this.name = name;
+	   subj1 = 0.00;
+	   subj2 = 0.00;
+	   subj3 = 0.00;
+	   numberOfStudents++;
+   }
+   
+   public Student(int id, String name, double subj1, double subj2) {
+	   this.id = id;
+	   this.name = name;
+	   this.subj1 = subj1;
+	   this.subj2 = subj2;
+	   numberOfStudents++;
+   }
+   
+   public Student(int id, String name, double subj1, double subj2, double subj3) {
+	   this.id = id;
+	   this.name = name;
+	   this.subj1 = subj1;
+	   this.subj2 = subj2;
+	   this.subj3 = subj3;
+	   numberOfStudents++;
+   }
+   
+   public static char scoreToLetterGrade(double d) {
+	   
+	   char result;
+	   if (d >= 90)
+	      { result = 'A'; }
+	   else {
+	      if (d >= 80) 
+	         { result = 'B'; }
+	      else {
+	         if (d >= 70) 
+	            { result = 'C'; }
+	         else {
+	            if (d >= 60)
+	               { result = 'D'; }
+	            else {
+	               result = 'F';
+	            }
+	         }
+	      }
+	   }
+	  return result;
+	}
+   
+// Overloaded Method
+   public void getAverage (double a, double b, double c) {
+	   
+	   double average = 0.0;
+	   average = (a + b + c)/3;
+	   System.out.println("Your average is: " + average);
+	   
+   }
+   //Overloaded Method
+   public void getAverage (double a, double b) {
+	   
+	   double average = 0.0;
+	   average = (a + b)/2;
+	   System.out.println("Your average is: " + average);
+	   
+   }
+   
+// Accessor   
+public int getId() {
+	return id;
+}
+// Mutator
+public void setId(int id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
 
-	{
-		this.name=name;
-		this.ssn=ssn;
-		this.course_completed=course_completed;
-		this.course_grades=course_grades;
-		this.course_credits=course_credits;
-	}//end of constructor
+public double getSubj1() {
+	return subj1;
+}
+public void setSubj1(double subj1) {
+	this.subj1 = subj1;
+}
+	
+public double getSubj2() {
+	return subj2;
+}
+public void setSubj2(double subj2) {
+	this.subj2 = subj2;
+}
+public double getSubj3() {
+	return subj3;
+}
+public void setSubj3(double subj3) {
+	this.subj3 = subj3;
+}
 
-
-		//Create a Getter and Setter Method..
-		public String getName()
-		{
-			return name;
-		}
-
-		public void setName(String name)
-		{
-			this.name = name;
-		}
-
-		public String getSsn()
-		{
-			return ssn;
-		}
-
-		public void setSsn(String ssn)
-		{
-			this.ssn = ssn;
-		}
-
-		public int getCourse_completed() 
-		{
-			return course_completed;
-		}
-
-		public void setCourse_completed(int course_completed) 
-		{
-			this.course_completed = course_completed;
-		}
-
-		public int getCourse_grades()
-		{
-			
-			
-			return course_grades;
-		}
-
-		public void setCourse_grades(int course_grades) 
-		{
-			this.course_grades = course_grades;
-		}
-
-		public String getCourse_credits() 
-		{
-			return course_credits;
-		}
-
-		public void setCourse_credits(String course_credits) 
-		{
-			this.course_credits = course_credits;
-		}
-
-		public void show()
-		{
-			//System.out.println("This is Student main method");
-			
-		}
-	}//end class
+// Static Method
+public static int getNumberOfStudents() {
+	return numberOfStudents;
+}
+}
